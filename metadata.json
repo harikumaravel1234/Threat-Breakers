@@ -1,0 +1,6 @@
+{
+  "name": "VibeProof Lens - HTTPS & Certificate Safety",
+  "description": "Professional SSL/TLS certificate security audit and downgrade prevention analyzer with deterministic compliance findings and remediation guides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
