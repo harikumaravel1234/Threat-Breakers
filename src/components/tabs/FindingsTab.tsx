@@ -73,32 +73,32 @@ Required Action:
   const getSeverityStyle = (sev: Severity) => {
     switch (sev) {
       case 'Critical':
-        return 'bg-rose-950 text-rose-300 border-rose-800/80';
+        return 'bg-[#F43F5E]/15 text-[#F43F5E] border-[#F43F5E]/40';
       case 'High':
-        return 'bg-rose-950/70 text-rose-300 border-rose-800/60';
+        return 'bg-[#F97316]/15 text-[#F97316] border-[#F97316]/40';
       case 'Medium':
-        return 'bg-amber-950 text-amber-300 border-amber-800/80';
+        return 'bg-[#FACC15]/15 text-[#FACC15] border-[#FACC15]/40';
       case 'Low':
-        return 'bg-sky-950 text-sky-300 border-sky-800/80';
+        return 'bg-[#10B981]/15 text-[#10B981] border-[#10B981]/40';
       default:
-        return 'bg-slate-900 text-slate-300 border-slate-700';
+        return 'bg-[#3B82F6]/15 text-[#3B82F6] border-[#3B82F6]/40';
     }
   };
 
   if (findings.length === 0) {
     return (
-      <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-12 text-center space-y-4">
-        <div className="w-14 h-14 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto shadow-lg shadow-emerald-950/40">
+      <div className="bg-[#162235] border border-[#26374F] rounded-2xl p-12 text-center space-y-4 shadow-sm">
+        <div className="w-14 h-14 rounded-2xl bg-[#10B981]/15 border border-[#10B981]/40 text-[#10B981] flex items-center justify-center mx-auto shadow-lg shadow-[#10B981]/10">
           <ShieldCheck className="w-7 h-7" />
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-white">Zero Security Findings Detected</h3>
-          <p className="text-xs text-slate-400 max-w-md mx-auto mt-1 leading-relaxed">
-            Target host <code className="text-slate-200 font-mono bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">{targetUrl}</code> satisfies all baseline X.509 validity, permanent port 80 redirection, and modern HSTS downgrade guard requirements.
+          <h3 className="text-lg font-semibold text-[#F8FAFC]">Zero Security Findings Detected</h3>
+          <p className="text-xs text-[#94A3B8] max-w-md mx-auto mt-1 leading-relaxed">
+            Target host <code className="text-[#F8FAFC] font-mono bg-[#0B1220] px-1.5 py-0.5 rounded border border-[#26374F]">{targetUrl}</code> satisfies all baseline X.509 validity, permanent port 80 redirection, and modern HSTS downgrade guard requirements.
           </p>
         </div>
-        <div className="pt-2 text-xs text-slate-500 font-mono">
-          Audit Grade: A+ · Compliant with OWASP ASVS 4.0 & PCI-DSS 4.0
+        <div className="pt-2 text-xs text-[#94A3B8] font-mono">
+          Audit Grade: <span className="text-[#10B981] font-bold">A+</span> · Compliant with OWASP ASVS 4.0 & PCI-DSS 4.0
         </div>
       </div>
     );
@@ -109,28 +109,28 @@ Required Action:
       {/* Findings Header & Filter Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 gap-3">
         <div className="flex items-center gap-2">
-          <h3 className="text-sm font-semibold text-slate-200 uppercase tracking-wider">
+          <h3 className="text-sm font-semibold text-[#F8FAFC] uppercase tracking-wider">
             Identified Issues & Technical Fixes
           </h3>
-          <span className="text-xs text-slate-400 font-mono">
+          <span className="text-xs text-[#94A3B8] font-mono">
             ({filteredFindings.length} of {findings.length})
           </span>
         </div>
 
         {/* Severity Filter */}
-        <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-xl border border-slate-800 text-xs">
-          <span className="text-slate-500 px-2 font-medium flex items-center gap-1">
-            <Filter className="w-3 h-3" /> Filter:
+        <div className="flex items-center gap-1.5 p-1 bg-[#0B1220] rounded-xl border border-[#26374F] text-xs">
+          <span className="text-[#94A3B8] px-2 font-medium flex items-center gap-1">
+            <Filter className="w-3 h-3 text-[#06B6D4]" /> Filter:
           </span>
           {['all', 'critical', 'medium', 'low'].map((sev) => (
             <button
               key={sev}
               type="button"
               onClick={() => setSeverityFilter(sev)}
-              className={`px-2.5 py-1 rounded-lg font-mono capitalize transition-colors ${
+              className={`px-2.5 py-1 rounded-lg font-mono capitalize transition-colors cursor-pointer ${
                 severityFilter === sev
-                  ? 'bg-slate-800 text-white shadow-sm font-semibold'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-[#1B2B42] text-[#F8FAFC] border border-[#3B82F6] shadow-sm font-semibold'
+                  : 'text-[#94A3B8] hover:text-[#F8FAFC]'
               }`}
             >
               {sev}
@@ -149,58 +149,58 @@ Required Action:
           return (
             <div
               key={f.id}
-              className="border border-slate-800 bg-slate-900/40 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-700/80 shadow-sm"
+              className="border border-[#26374F] bg-[#162235] rounded-2xl overflow-hidden transition-all duration-200 hover:border-[#3B82F6]/50 shadow-sm"
             >
               {/* Header Row */}
               <div
                 onClick={() => setExpandedId(isExpanded ? null : f.id)}
-                className="p-5 flex items-center justify-between cursor-pointer hover:bg-slate-800/30 transition-colors select-none"
+                className="p-5 flex items-center justify-between cursor-pointer hover:bg-[#1B2B42]/40 transition-colors select-none"
               >
                 <div className="flex flex-wrap items-center gap-3">
                   <span className={`px-2 py-0.5 rounded text-xs font-mono font-semibold border ${getSeverityStyle(f.severity)}`}>
                     {f.severity}
                   </span>
-                  <span className="font-mono text-xs text-indigo-400 font-semibold bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+                  <span className="font-mono text-xs text-[#06B6D4] font-semibold bg-[#0B1220] px-2 py-0.5 rounded border border-[#26374F]">
                     {f.ruleId}
                   </span>
-                  <span className="font-medium text-sm text-slate-100">
+                  <span className="font-medium text-sm text-[#F8FAFC]">
                     {f.title}
                   </span>
-                  <span className="text-xs text-slate-500 font-mono hidden md:inline">
+                  <span className="text-xs text-[#94A3B8] font-mono hidden md:inline">
                     · {f.kind}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-400 pl-2">
-                  <span className="text-xs hidden sm:inline text-slate-500">
+                <div className="flex items-center gap-2 text-[#94A3B8] pl-2">
+                  <span className="text-xs hidden sm:inline text-[#94A3B8]">
                     {isExpanded ? 'Collapse' : 'Remediation'}
                   </span>
                   {isExpanded ? (
-                    <ChevronUp className="w-4 h-4 text-slate-400" />
+                    <ChevronUp className="w-4 h-4 text-[#94A3B8]" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-slate-400" />
+                    <ChevronDown className="w-4 h-4 text-[#94A3B8]" />
                   )}
                 </div>
               </div>
 
               {/* Expanded Remediation Body */}
               {isExpanded && (
-                <div className="p-6 border-t border-slate-800 bg-slate-950/70 space-y-5 text-xs">
+                <div className="p-6 border-t border-[#26374F] bg-[#0B1220]/80 space-y-5 text-xs">
                   {/* Description & Impact */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <h4 className="font-semibold text-slate-400 uppercase tracking-wider text-[11px]">
+                      <h4 className="font-semibold text-[#94A3B8] uppercase tracking-wider text-[11px]">
                         Defect Description
                       </h4>
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-[#F8FAFC] leading-relaxed">
                         {f.description}
                       </p>
                     </div>
 
                     <div className="space-y-1.5">
-                      <h4 className="font-semibold text-rose-400/90 uppercase tracking-wider text-[11px]">
+                      <h4 className="font-semibold text-[#F43F5E] uppercase tracking-wider text-[11px]">
                         Security & Business Impact
                       </h4>
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-[#F8FAFC] leading-relaxed">
                         {f.impact}
                       </p>
                     </div>
@@ -208,21 +208,21 @@ Required Action:
 
                   {/* Deterministic Evidence */}
                   <div className="space-y-1.5">
-                    <h4 className="font-semibold text-slate-400 uppercase tracking-wider text-[11px]">
+                    <h4 className="font-semibold text-[#94A3B8] uppercase tracking-wider text-[11px]">
                       Deterministic Probe Evidence
                     </h4>
-                    <code className="block bg-slate-950 p-3 rounded-xl text-slate-300 font-mono border border-slate-800/80 break-all">
+                    <code className="block bg-[#0B1220] p-3 rounded-xl text-[#F8FAFC] font-mono border border-[#26374F] break-all">
                       {f.evidence}
                     </code>
                   </div>
 
                   {/* Standards Alignment */}
                   <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
-                    <span className="text-slate-500 font-medium">Standards Citation:</span>
+                    <span className="text-[#94A3B8] font-medium">Standards Citation:</span>
                     {f.standards.map((st, i) => (
                       <span
                         key={i}
-                        className="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg text-slate-300 font-mono text-[11px]"
+                        className="bg-[#162235] border border-[#26374F] px-2.5 py-1 rounded-lg text-[#F8FAFC] font-mono text-[11px]"
                       >
                         {st}
                       </span>
@@ -230,11 +230,11 @@ Required Action:
                   </div>
 
                   {/* AI Remediation Snippet Box with Framework Switcher */}
-                  <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-3">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-slate-800">
+                  <div className="bg-[#162235] border border-[#26374F] rounded-xl p-4 space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-[#26374F]">
                       <div className="flex items-center gap-2">
-                        <Code2 className="w-4 h-4 text-indigo-400" />
-                        <h4 className="font-semibold text-slate-200 uppercase tracking-wider text-[11px]">
+                        <Code2 className="w-4 h-4 text-[#06B6D4]" />
+                        <h4 className="font-semibold text-[#F8FAFC] uppercase tracking-wider text-[11px]">
                           Production Remediation Patch
                         </h4>
                       </div>
@@ -253,10 +253,10 @@ Required Action:
                                   [f.id]: fw.id,
                                 }))
                               }
-                              className={`px-2.5 py-1 rounded-md text-[11px] font-mono transition-colors ${
+                              className={`px-2.5 py-1 rounded-md text-[11px] font-mono transition-colors cursor-pointer ${
                                 isActive
-                                  ? 'bg-indigo-600 text-white font-semibold'
-                                  : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                                  ? 'bg-[#3B82F6] text-[#F8FAFC] font-semibold shadow-sm'
+                                  : 'bg-[#0B1220] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#26374F]'
                               }`}
                             >
                               {fw.label}
@@ -268,15 +268,15 @@ Required Action:
 
                     {/* Action Bar (Copy Code & Copy AI Prompt) */}
                     <div className="flex items-center justify-between text-xs pt-1">
-                      <span className="text-slate-400 font-mono text-[11px]">
-                        Target Stack: <span className="text-indigo-300 font-semibold">{currentFw.toUpperCase()}</span>
+                      <span className="text-[#94A3B8] font-mono text-[11px]">
+                        Target Stack: <span className="text-[#06B6D4] font-semibold">{currentFw.toUpperCase()}</span>
                       </span>
 
                       <div className="flex items-center gap-3">
                         <button
                           type="button"
                           onClick={() => handleCopyAiPrompt(f, currentFw)}
-                          className="flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 transition-colors font-mono cursor-pointer"
+                          className="flex items-center gap-1.5 text-xs text-[#06B6D4] hover:text-[#38BDF8] transition-colors font-mono cursor-pointer"
                           title="Generate high-fidelity engineer prompt"
                         >
                           <Sparkles className="w-3.5 h-3.5" />
@@ -286,10 +286,10 @@ Required Action:
                         <button
                           type="button"
                           onClick={() => handleCopyCode(currentCode, f.id)}
-                          className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1 rounded-lg border border-slate-700 transition-colors font-mono cursor-pointer"
+                          className="flex items-center gap-1.5 text-xs text-[#F8FAFC] hover:text-[#06B6D4] bg-[#0B1220] hover:bg-[#1B2B42] px-3 py-1 rounded-lg border border-[#26374F] transition-colors font-mono cursor-pointer shadow-sm"
                         >
                           {copiedCodeId === f.id ? (
-                            <Check className="w-3.5 h-3.5 text-emerald-400" />
+                            <Check className="w-3.5 h-3.5 text-[#10B981]" />
                           ) : (
                             <Copy className="w-3.5 h-3.5" />
                           )}
@@ -299,7 +299,7 @@ Required Action:
                     </div>
 
                     {/* Preformatted Code Box */}
-                    <pre className="bg-slate-950 p-4 rounded-xl text-slate-200 font-mono border border-slate-800/90 overflow-x-auto text-[11px] leading-relaxed">
+                    <pre className="bg-[#0B1220] p-4 rounded-xl text-[#F8FAFC] font-mono border border-[#26374F] overflow-x-auto text-[11px] leading-relaxed">
                       {currentCode}
                     </pre>
                   </div>

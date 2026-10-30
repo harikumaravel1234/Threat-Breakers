@@ -171,7 +171,7 @@ ${data.findings.length === 0 ? 'No findings detected. System fully compliant.' :
   };
 
   return (
-    <div className="w-full min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div className="w-full min-h-screen bg-[#0B1220] text-[#F8FAFC] flex flex-col font-sans selection:bg-[#06B6D4]/30 selection:text-[#F8FAFC]">
       {/* Top Bar Navigation Contract */}
       <HeaderBar
         activeSection={activeTab}
@@ -204,18 +204,18 @@ ${data.findings.length === 0 ? 'No findings detected. System fully compliant.' :
         />
 
         {/* Navigation Tabs (Functional Segmented Buttons with Active States) */}
-        <div className="border-b border-slate-800">
+        <div className="border-b border-[#26374F]">
           <nav className="flex space-x-6 sm:space-x-8 text-sm overflow-x-auto no-scrollbar">
             <button
               type="button"
               onClick={() => setActiveTab('overview')}
               className={`pb-3 font-medium transition-colors border-b-2 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === 'overview'
-                  ? 'border-indigo-500 text-white'
-                  : 'border-transparent text-slate-400 hover:text-slate-200'
+                  ? 'border-[#06B6D4] text-[#F8FAFC]'
+                  : 'border-transparent text-[#94A3B8] hover:text-[#F8FAFC]'
               }`}
             >
-              <Layers className="w-4 h-4 text-indigo-400" />
+              <Layers className="w-4 h-4 text-[#06B6D4]" />
               <span>Certificate & Chain</span>
             </button>
 
@@ -224,11 +224,11 @@ ${data.findings.length === 0 ? 'No findings detected. System fully compliant.' :
               onClick={() => setActiveTab('transport')}
               className={`pb-3 font-medium transition-colors border-b-2 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === 'transport'
-                  ? 'border-indigo-500 text-white'
-                  : 'border-transparent text-slate-400 hover:text-slate-200'
+                  ? 'border-[#06B6D4] text-[#F8FAFC]'
+                  : 'border-transparent text-[#94A3B8] hover:text-[#F8FAFC]'
               }`}
             >
-              <Globe className="w-4 h-4 text-cyan-400" />
+              <Globe className="w-4 h-4 text-[#06B6D4]" />
               <span>Transport & Downgrade Guard</span>
             </button>
 
@@ -237,18 +237,18 @@ ${data.findings.length === 0 ? 'No findings detected. System fully compliant.' :
               onClick={() => setActiveTab('findings')}
               className={`pb-3 font-medium transition-colors border-b-2 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === 'findings'
-                  ? 'border-indigo-500 text-white'
-                  : 'border-transparent text-slate-400 hover:text-slate-200'
+                  ? 'border-[#06B6D4] text-[#F8FAFC]'
+                  : 'border-transparent text-[#94A3B8] hover:text-[#F8FAFC]'
               }`}
             >
-              <AlertTriangle className="w-4 h-4 text-amber-400" />
+              <AlertTriangle className="w-4 h-4 text-[#FACC15]" />
               <span>Actionable Findings</span>
               {data.findings.length > 0 ? (
-                <span className="bg-amber-950 text-amber-300 border border-amber-800/80 text-xs px-2 py-0.2 rounded-md font-mono font-bold">
+                <span className="bg-[#FACC15]/15 text-[#FACC15] border border-[#FACC15]/40 text-xs px-2 py-0.2 rounded-md font-mono font-bold">
                   {data.findings.length}
                 </span>
               ) : (
-                <span className="bg-emerald-950 text-emerald-300 border border-emerald-800/80 text-xs px-1.5 py-0.2 rounded-md font-mono">
+                <span className="bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/40 text-xs px-1.5 py-0.2 rounded-md font-mono">
                   0
                 </span>
               )}
@@ -259,11 +259,11 @@ ${data.findings.length === 0 ? 'No findings detected. System fully compliant.' :
               onClick={() => setActiveTab('compliance')}
               className={`pb-3 font-medium transition-colors border-b-2 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === 'compliance'
-                  ? 'border-indigo-500 text-white'
-                  : 'border-transparent text-slate-400 hover:text-slate-200'
+                  ? 'border-[#06B6D4] text-[#F8FAFC]'
+                  : 'border-transparent text-[#94A3B8] hover:text-[#F8FAFC]'
               }`}
             >
-              <FileCheck className="w-4 h-4 text-emerald-400" />
+              <FileCheck className="w-4 h-4 text-[#10B981]" />
               <span>Compliance Matrix</span>
             </button>
 
@@ -272,11 +272,11 @@ ${data.findings.length === 0 ? 'No findings detected. System fully compliant.' :
               onClick={() => setActiveTab('raw')}
               className={`pb-3 font-medium transition-colors border-b-2 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === 'raw'
-                  ? 'border-indigo-500 text-white'
-                  : 'border-transparent text-slate-400 hover:text-slate-200'
+                  ? 'border-[#06B6D4] text-[#F8FAFC]'
+                  : 'border-transparent text-[#94A3B8] hover:text-[#F8FAFC]'
               }`}
             >
-              <Terminal className="w-4 h-4 text-slate-400" />
+              <Terminal className="w-4 h-4 text-[#A78BFA]" />
               <span>Raw PEM & Headers</span>
             </button>
           </nav>
@@ -302,20 +302,20 @@ ${data.findings.length === 0 ? 'No findings detected. System fully compliant.' :
 
       {/* Floating Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 border border-indigo-500/50 text-white text-xs px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 animate-in slide-in-from-bottom-3 duration-200">
-          <Check className="w-4 h-4 text-emerald-400" />
+        <div className="fixed bottom-6 right-6 z-50 bg-[#162235] border border-[#3B82F6]/50 text-[#F8FAFC] text-xs px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 animate-in slide-in-from-bottom-3 duration-200">
+          <Check className="w-4 h-4 text-[#10B981]" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Quiet Footer */}
-      <footer className="mt-16 border-t border-slate-900 py-6 px-6 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-7xl mx-auto w-full">
+      <footer className="mt-16 border-t border-[#26374F] py-6 px-6 text-xs text-[#94A3B8] flex flex-col sm:flex-row items-center justify-between gap-4 max-w-7xl mx-auto w-full">
         <div className="flex items-center gap-2 font-mono">
-          <span>VibeProof Lens Security Architecture</span>
-          <span className="text-slate-700">·</span>
+          <span className="text-[#F8FAFC]">VibeProof Lens Security Architecture</span>
+          <span className="text-[#26374F]">·</span>
           <span>Module 5.1 (HTTPS & Certificate Safety)</span>
         </div>
-        <div className="flex items-center gap-4 text-slate-400">
+        <div className="flex items-center gap-4 text-[#94A3B8]">
           <span>RFC 5280 · RFC 6797 · OWASP ASVS 4.0</span>
         </div>
       </footer>

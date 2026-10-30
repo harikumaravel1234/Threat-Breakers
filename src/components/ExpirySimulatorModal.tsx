@@ -44,41 +44,41 @@ export const ExpirySimulatorModal: React.FC<ExpirySimulatorModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-150">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-lg p-6 space-y-6 shadow-2xl relative text-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
+      <div className="bg-[#162235] border border-[#26374F] rounded-2xl w-full max-w-lg p-6 space-y-6 shadow-2xl relative text-[#F8FAFC]">
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div className="flex items-center justify-between pb-3 border-b border-[#26374F]">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+            <div className="p-2 rounded-xl bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30">
               <Sliders className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-base font-semibold text-white">
+              <h3 className="text-base font-semibold text-[#F8FAFC]">
                 Certificate Expiry & Alert Simulator
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#94A3B8]">
                 Test how scorecard grades, alerting rules, and browser security screens react.
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer"
+            className="text-[#94A3B8] hover:text-[#F8FAFC] p-1 rounded-lg transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Days Slider */}
-        <div className="space-y-4 bg-slate-950 p-4 rounded-xl border border-slate-800">
+        <div className="space-y-4 bg-[#0B1220] p-4 rounded-xl border border-[#26374F]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-[#94A3B8] uppercase tracking-wider">
               Simulated Validity Window:
             </span>
             <span className={`text-base font-mono font-bold ${
-              isExpired ? 'text-rose-400' :
-              isCritical ? 'text-rose-400' :
-              isWarning ? 'text-amber-400' : 'text-emerald-400'
+              isExpired ? 'text-[#F43F5E]' :
+              isCritical ? 'text-[#F43F5E]' :
+              isWarning ? 'text-[#FACC15]' : 'text-[#10B981]'
             }`}>
               {isExpired ? 'Expired (0 days)' : `${simulatedDays} Days Left`}
             </span>
@@ -90,31 +90,31 @@ export const ExpirySimulatorModal: React.FC<ExpirySimulatorModalProps> = ({
             max={90}
             value={simulatedDays}
             onChange={(e) => setSimulatedDays(Number(e.target.value))}
-            className="w-full accent-indigo-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
+            className="w-full accent-[#06B6D4] cursor-pointer h-2 bg-[#1B2B42] rounded-lg"
           />
 
-          <div className="flex justify-between text-[11px] font-mono text-slate-500">
+          <div className="flex justify-between text-[11px] font-mono text-[#94A3B8]">
             <button
               onClick={() => setSimulatedDays(0)}
-              className="hover:text-rose-400 transition-colors"
+              className="hover:text-[#F43F5E] transition-colors cursor-pointer"
             >
               0d (Outage)
             </button>
             <button
               onClick={() => setSimulatedDays(4)}
-              className="hover:text-rose-400 transition-colors"
+              className="hover:text-[#F43F5E] transition-colors cursor-pointer"
             >
               4d (Critical)
             </button>
             <button
               onClick={() => setSimulatedDays(28)}
-              className="hover:text-amber-400 transition-colors"
+              className="hover:text-[#FACC15] transition-colors cursor-pointer"
             >
               28d (Warning)
             </button>
             <button
               onClick={() => setSimulatedDays(85)}
-              className="hover:text-emerald-400 transition-colors"
+              className="hover:text-[#10B981] transition-colors cursor-pointer"
             >
               85d (Healthy)
             </button>
@@ -124,22 +124,22 @@ export const ExpirySimulatorModal: React.FC<ExpirySimulatorModalProps> = ({
         {/* Browser Interruption Mock */}
         <div className={`p-4 rounded-xl border space-y-2 text-xs ${
           isExpired
-            ? 'bg-rose-950/40 border-rose-500/50 text-rose-200'
+            ? 'bg-[#F43F5E]/15 border-[#F43F5E]/40 text-[#F43F5E]'
             : isCritical
-            ? 'bg-rose-950/30 border-rose-500/40 text-rose-300'
+            ? 'bg-[#F43F5E]/15 border-[#F43F5E]/40 text-[#F43F5E]'
             : isWarning
-            ? 'bg-amber-950/30 border-amber-500/40 text-amber-200'
-            : 'bg-emerald-950/30 border-emerald-500/40 text-emerald-200'
+            ? 'bg-[#FACC15]/15 border-[#FACC15]/40 text-[#FACC15]'
+            : 'bg-[#10B981]/15 border-[#10B981]/40 text-[#10B981]'
         }`}>
           <div className="flex items-center gap-2 font-semibold">
             {isExpired ? (
-              <ShieldAlert className="w-4 h-4 text-rose-400" />
+              <ShieldAlert className="w-4 h-4 text-[#F43F5E]" />
             ) : isCritical ? (
-              <AlertTriangle className="w-4 h-4 text-rose-400" />
+              <AlertTriangle className="w-4 h-4 text-[#F43F5E]" />
             ) : isWarning ? (
-              <Clock className="w-4 h-4 text-amber-400" />
+              <Clock className="w-4 h-4 text-[#FACC15]" />
             ) : (
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             )}
             <span>
               {isExpired
@@ -151,7 +151,7 @@ export const ExpirySimulatorModal: React.FC<ExpirySimulatorModalProps> = ({
                 : 'Nominal Operational State'}
             </span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">
+          <p className="text-[11px] text-[#94A3B8] leading-relaxed">
             {isExpired
               ? 'Every visitor will see a full-page security block requiring manual bypass. API clients and payment gateways will terminate connections instantly.'
               : isCritical
@@ -167,7 +167,7 @@ export const ExpirySimulatorModal: React.FC<ExpirySimulatorModalProps> = ({
           <button
             type="button"
             onClick={handleReset}
-            className="px-4 py-2 text-xs font-mono text-slate-400 hover:text-white transition-colors"
+            className="px-4 py-2 text-xs font-mono text-[#94A3B8] hover:text-[#F8FAFC] transition-colors cursor-pointer"
           >
             Reset Default (28d)
           </button>
@@ -176,14 +176,14 @@ export const ExpirySimulatorModal: React.FC<ExpirySimulatorModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 rounded-xl transition-colors"
+              className="px-4 py-2 text-xs font-medium text-[#94A3B8] hover:bg-[#1B2B42] hover:text-[#F8FAFC] rounded-xl transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="button"
               onClick={handleApply}
-              className="px-5 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors shadow-sm shadow-indigo-600/30 cursor-pointer"
+              className="px-5 py-2 text-xs font-semibold text-white bg-[#3B82F6] hover:bg-[#2563EB] rounded-xl transition-colors shadow-sm shadow-[#3B82F6]/30 cursor-pointer"
             >
               Apply Simulation
             </button>
